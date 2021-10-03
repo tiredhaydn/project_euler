@@ -9,4 +9,13 @@ edition = "2018"
 name = "problem001"
 path = "src/bin/problem001.rs"
 
+[[bin]]
+name = "problem002"
+path = "src/bin/problem002.rs"
+
+[[bin]]
+name = "problem003"
+path = "src/bin/problem003.rs"
+
+
 [dependencies]
