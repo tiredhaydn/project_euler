@@ -7,15 +7,15 @@ edition = "2018"
 
 [[bin]]
 name = "problem001"
-path = "src/bin/problem001.rs"
+path = "src/bin/problem001/main.rs"
 
 [[bin]]
 name = "problem002"
-path = "src/bin/problem002.rs"
+path = "src/bin/problem002/main.rs"
 
 [[bin]]
 name = "problem003"
-path = "src/bin/problem003.rs"
+path = "src/bin/problem003/main.rs"
 
 
 [dependencies]
