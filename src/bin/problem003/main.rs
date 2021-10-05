@@ -9,13 +9,6 @@ fn main() {
         if i > n {
             break;
         }
-        i += 4;
-        while n % i == 0 {
-            n /= i;
-        }
-        if i > n {
-            break;
-        }
         i += 2;
     }
     println!("{}", i);
