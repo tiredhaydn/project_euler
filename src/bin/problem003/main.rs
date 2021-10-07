@@ -6,7 +6,7 @@ fn main() {
         while n % i == 0 {
             n /= i;
         }
-        if i > n {
+        if n == 1 {
             break;
         }
         i += 2;
