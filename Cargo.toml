@@ -17,5 +17,12 @@ path = "src/bin/problem002/main.rs"
 name = "problem003"
 path = "src/bin/problem003/main.rs"
 
+[[bin]]
+name = "problem004"
+path = "src/bin/problem004/main.rs"
+
+[[bin]]
+name = "problem005"
+path = "src/bin/problem005/main.rs"
 
 [dependencies]
