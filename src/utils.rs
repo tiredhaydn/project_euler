@@ -22,6 +22,41 @@ pub fn is_palindrome(n: u64) -> bool {
 }
 
 
+pub fn modpow(a: u64, n: u64, m: u64) -> u64 {
+    let a: u128 = a as u128;                // a == u64::MAXの場合のオーバーフロー防止
+    let m: u128 = m as u128;                // aに型を合わせるため
+    let a_mod_m = a % m;
+    if a_mod_m == 0 || a_mod_m == 1 {       // 0と1はn乗してもそのまま
+        return a_mod_m as u64;
+    }
+    if a_mod_m == m - 1 {                   // -1は偶数乗で1奇数乗で奇数乗で-1
+        return if n % 2 == 0 { 1 } else { a_mod_m as u64 };
+    }
+    // n = ∑b_i * 2^i
+    // b_i: nの2進数表示のi桁目
+    // としたとき、
+    // a^n mod m = a^(b_0 * 2^0 + b_1 * 2^1 + b_2 * 2^2 + ... + b_k * 2^k)
+    //           = a^b_0 * a^(b_1 * 2) * a^(b_2 * 4) * ... * a^(b_k * 2^k)
+    // b_iの値は0または1をとるので1のところでa^(2^i)をかけ合わせればよい。
+    let mut modpow = 1;
+    let mut a_mod_m = a_mod_m;
+    let mut n = n;
+    while n != 0 {
+        if n & 1 == 1 {                     // ビットが1ならa^(2^i)を蓄積変数にかけ合わせる
+            modpow *= a_mod_m;
+            modpow %= m;
+        }
+        a_mod_m *= a_mod_m;                 // a^1, a^2, a^4, a^8, ...と計算する
+        a_mod_m %= m;
+        if a_mod_m == 1 {
+            return modpow as u64;
+        }
+        n >>= 1;
+    }
+    modpow as u64
+}
+
+
 #[cfg(test)]
 mod tests {
     use super::*;
