@@ -34,6 +34,10 @@ name = "problem007"
 path = "src/bin/problem007/main.rs"
 
 [[bin]]
+name = "problem008"
+path = "src/bin/problem008/main.rs"
+
+[[bin]]
 name = "problem064"
 path = "src/bin/problem064/main.rs"
 
